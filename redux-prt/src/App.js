@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from "react-redux";
-import { startAction } from './actions/startAction';
-import { stopAction } from './actions/stopAction';
+//import { startAction } from './actions/startAction';
+//import { stopAction } from './actions/stopAction';
+import rotateAction from './actions/rotateAction';
 
 class App extends Component {
   render() {
@@ -17,10 +18,7 @@ class App extends Component {
             (this.props.rotating ? "":" App-logo-paused")
           }
           alt="logo"
-          onClick={
-            this.props.rotating ?
-              this.props.stopAction : this.props.startAction
-          }
+          onClick={() => this.props.rotateAction(!this.props.rotating)}
           />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -43,8 +41,9 @@ const mapStateToProps = state => ({
   ...state
 });
 const mapDispatchToProps = dispatch => ({
-  startAction: () => dispatch(startAction),
-  stopAction: () => dispatch(stopAction)
+  //startAction: () => dispatch(startAction),
+  //stopAction: () => dispatch(stopAction),
+  rotateAction: (payload) => dispatch(rotateAction(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
