@@ -12,11 +12,11 @@ function CakeContainer(props) {
 }
 
 const mapStateToProps = (state) => {
-  return {numOfCakes: state.cake.numOfCakes};
+  return { numOfCakes: state.cake.numOfCakes };
 };
 
-const mapDispatchToProps = (state) => {
-  return {buyCake: () => dispatch(buyCake())};
+const mapDispatchToProps = (dispatch) => {
+  return { buyCake: () => dispatch(buyCake()) };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer);
